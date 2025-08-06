@@ -30,19 +30,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/r/:data", (req: Request<{ data: string }>, res: Response): void => {
-  if (!process.env.FRONTEND_URL) {
-    console.error("❌ FRONTEND_URL is missing in .env");
-    res.status(500).send("Frontend URL not configured");
-    return;
-  }
-
-  const token = req.params.data;
-  const redirectUrl = `${process.env.FRONTEND_URL}/r/${token}`;
-  res.redirect(302, redirectUrl); // 302 = temporary redirect
-});
-
-
 // Mount routers
 app.use("/api/auth", authRouter);
 app.use("/api/food", foodRouter);
