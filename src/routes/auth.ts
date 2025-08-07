@@ -218,7 +218,7 @@ router.post("/login", async (req: Request, res: Response): Promise<void> => {
     // ✅ SuperAdmin Bypass
     if (
       email === "willovateofficial@gmail.com" &&
-      password === "Willovate@321"
+      password === "Willovate321@"
     ) {
       const tokenPayload: BusinessOwnerPayload = {
         userId: 1,
